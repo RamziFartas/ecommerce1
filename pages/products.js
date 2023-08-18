@@ -22,7 +22,7 @@ return(
    </thead>
    <tbody>
 {products.map(product =>(
-<tr>
+<tr key={product.id}>
     <td>{product.title}</td>
     <td>
     <Link className="btn-default" href={'/products/edit/'+product._id}>

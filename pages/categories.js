@@ -102,7 +102,7 @@ function Categories({swal}) {
             value={parentCategory}>
             <option value="">No parent category</option>
             {categories?.length > 0 && categories.map(category => (
-            <option value={category._id}>{category.name}</option>  
+            <option key={category.id} value={category._id}>{category.name}</option>  
             ))}
         </select>        
         </div>
@@ -112,7 +112,7 @@ function Categories({swal}) {
          onClick={addProperty}
          className="btn-default text-sm mb-2">Add new property</button>
          {addProperty.length >0 && properties.map((property,index) =>(
-            <div className="flex gap-1 mb-2">
+            <div key={property.id} className="flex gap-1 mb-2">
                 <input type="text"  className="mb-0"
                 onChange={ev=> handlePropertyNameChange(index,property, ev.target.value)}
                 value={property.name} placeholder="property name (exemple: color)"/>
@@ -152,7 +152,7 @@ function Categories({swal}) {
             </thead>
         <tbody>
             {categories?.length > 0 && categories.map(category => (
-                <tr>
+                <tr key={category.id}>
                 <td>{category.name}</td>
                 <td>{category?.parent?.name}</td>
                 <td>

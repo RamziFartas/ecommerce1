@@ -22,10 +22,10 @@ axios.get('/api/products?id='+id).then(response =>{
       await axios.delete('/api/products?id='+id);
       goBack();
     }
+    const text='Do You Really Want To Delete ?';
     return(
 <Layout>
-   <h1 className="text-center">Do You Really Want To Delete 
-    &nbsp; "{productInfo?.title}"</h1> 
+   <h1 className="text-center">{text} &apos;{productInfo?.title}&apos;</h1> 
     <div className="flex gap-2 justify-center">
     <button className="btn-red" onClick={deleteProduct}>Yes</button>
     <button className="btn-default" onClick={goBack}>No</button>
