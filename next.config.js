@@ -1,7 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  nextauth_url:'api/auth/callback/google',
+  env:{
+    nextauth_url:'api/auth/callback/google'
+  },
   images: {
     remotePatterns: [
       {
