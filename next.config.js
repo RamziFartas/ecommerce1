@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  nextauth_url:'https://ecommerce1-ljfd.vercel.app/api/auth/callback/google',
+  nextauth_url:'api/auth/callback/google',
   images: {
     remotePatterns: [
       {
