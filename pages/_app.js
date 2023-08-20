@@ -1,7 +1,8 @@
+import cors from "cors"
 import '@/styles/globals.css'
 import { SessionProvider } from "next-auth/react"
 
-export default function App({
+ function App({
   Component, pageProps: { session, ...pageProps }
 }) {
   return (
@@ -10,3 +11,4 @@ export default function App({
     </SessionProvider>
   )
 }
+export default cors()(App);
