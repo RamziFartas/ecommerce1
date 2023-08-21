@@ -4,7 +4,7 @@ import { MongoDBAdapter } from "@next-auth/mongodb-adapter"
 import clientPromise from "@/lib/mongodb"
 import cors from "cors"
 
-const adminEmails= ['rfartas83@gmail.com'];
+const adminEmails= [''];
 export const authOptions= {
   providers: [
     // OAuth authentication providers...
