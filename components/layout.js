@@ -9,8 +9,7 @@ export default function Layout({children}) {
   return (
   <div className="bg-emerald-700 w-screen h-screen flex items-center">
   <div className="text-center w-full text-gray-700">
-  <button onClick={() => 
-    signIn('google')} className="p-2 px-4 bg-white rounded-lg">Login With Google</button>
+  <button onClick={() => signIn('google')} className="p-2 px-4 bg-white rounded-lg">Login With Google</button>
   </div>
   </div>)
   }
