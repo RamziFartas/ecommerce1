@@ -1,13 +1,14 @@
-import NextAuth, { Session, getServerSession } from 'next-auth'
+import NextAuth, {  getServerSession } from 'next-auth'
 import GoogleProvider from 'next-auth/providers/google'
-import { MongoDBAdapter } from "@next-auth/mongodb-adapter"
-import clientPromise from '@/lib/mongodb';
+import { MongoDBAdapter } from '@next-auth/mongodb-adapter'
+import clientPromise  from '/Users/Solid_State/Desktop/Web 2.0/Full Stack/ecom-store FrontEnd/ecommerce1/lib/mongodb'
 
 const adminEmails: string[] = ['rfartas83@gmail.com'];
 // Define the types for your user and session objects
-interface User {
+interface session {
   email: string;
   // Add other user properties here
+  user:string;
 }
 
 
