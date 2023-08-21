@@ -2,7 +2,6 @@ import NextAuth, { getSession } from 'next-auth'
 import GoogleProvider from 'next-auth/providers/google'
 import { MongoDBAdapter } from "@next-auth/mongodb-adapter"
 import clientPromise from "@/lib/mongodb"
-import cors from "cors"
 
 const adminEmails= [''];
 export const authOptions= {
@@ -25,7 +24,7 @@ export const authOptions= {
     },
   }
 }
-export default cors()(NextAuth(authOptions));
+export default NextAuth(authOptions);
 export async function isAdminRequest(req,res){
 const session= await getSession(req,res,authOptions);
 if(!adminEmails.includes(session?.user?.email)){
