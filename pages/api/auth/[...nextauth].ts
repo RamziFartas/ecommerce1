@@ -5,7 +5,7 @@ import clientPromise from '../../../lib/mongodb'
 import { MongoClient } from 'mongodb'
 import type { NextApiRequest, NextApiResponse } from "next"
 
- async function auth(req: NextApiRequest, res: NextApiResponse){
+export async function auth(req: NextApiRequest, res: NextApiResponse){
   if(req.query.nextauth.includes("callback") && req.method === "POST") {
     console.log(
       "Handling callback request from my Identity Provider",
