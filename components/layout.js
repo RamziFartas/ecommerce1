@@ -13,7 +13,7 @@ export default function Layout({children}) {
     e.preventDefault();
     signIn('google',{
       callbackUrl: '/index'
-    })}} className="p-2 px-4 bg-white rounded-lg">Login With Google</button>
+    })}} type="submit" variant="solid" className="p-2 px-4 bg-white rounded-lg">Login With Google</button>
   </div>
   </div>)
   }
