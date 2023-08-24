@@ -3,8 +3,16 @@ import GoogleProvider from 'next-auth/providers/google'
 import { MongoDBAdapter } from '@next-auth/mongodb-adapter'
 import clientPromise from '../../../lib/mongodb'
 import { MongoClient } from 'mongodb'
+import type { NextApiRequest, NextApiResponse } from "next"
 
-const adminEmails: string[] = ['rfartas83@gmail.com'];
+ async function auth(req: NextApiRequest, res: NextApiResponse){
+  if(req.query.nextauth.includes("callback") && req.method === "POST") {
+    console.log(
+      "Handling callback request from my Identity Provider",
+      req.body
+    )
+  }}
+const adminEmails = ['rfartas83@gmail.com'];
 // Define the types for your user and session objects
 let client;
 const uri = process.env.MONGODB_URI;
@@ -19,7 +27,7 @@ const authOptions:NextAuthOptions = {
   adapter: MongoDBAdapter(clientPromise),
   secret: process.env.NEXTAUTH_SECRET,
   callbacks: {
-    session: ( { session,token,user}) => {
+    session: ( { session,token}) => {
       if (adminEmails.includes(session?.user?.email as string)) {
         return session;
       } else {
