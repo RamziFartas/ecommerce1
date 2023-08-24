@@ -19,7 +19,7 @@ const authOptions:NextAuthOptions = {
   adapter: MongoDBAdapter(clientPromise),
   secret: process.env.NEXTAUTH_SECRET,
   callbacks: {
-    async session( { session, token, user }) {
+    session: ( { session,token,user }) => {
       if (adminEmails.includes(session?.user?.email as string)) {
         return session;
       } else {
