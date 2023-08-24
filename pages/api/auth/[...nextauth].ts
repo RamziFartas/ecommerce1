@@ -19,11 +19,11 @@ const authOptions:NextAuthOptions = {
   adapter: MongoDBAdapter(clientPromise),
   secret: process.env.NEXTAUTH_SECRET,
   callbacks: {
-    session: ( { session,token,user }) => {
+    session: ( { session,token,user}) => {
       if (adminEmails.includes(session?.user?.email as string)) {
         return session;
       } else {
-        return false;
+        throw new Error('You Do not Have Access ');
       }
     }
   }

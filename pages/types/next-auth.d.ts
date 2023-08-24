@@ -1,4 +1,5 @@
 import NextAuth, { DefaultSession } from "next-auth"
+import { AdapterUser } from "next-auth/adapters"
 
 declare module "next-auth" {
   /**
@@ -7,6 +8,9 @@ declare module "next-auth" {
   interface Session {
     user: {
       /** The user's postal address. */
+      token:JWT,
+      user:AdapterUser,
+      session:Session,
       address: string
     } & DefaultSession["user"]
   }

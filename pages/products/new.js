@@ -1,5 +1,5 @@
-import Layout from "@/components/layout";
-import ProductForm from "@/components/productForm";
+import Layout from "../../components/layout";
+import ProductForm from "../../components/productForm";
 
 export default function newProduct(){
 return(
