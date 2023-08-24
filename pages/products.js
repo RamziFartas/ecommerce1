@@ -1,4 +1,4 @@
-import Layout from "@/components/layout";
+import Layout from "../components/layout";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import axios from "axios";

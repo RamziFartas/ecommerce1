@@ -1,7 +1,7 @@
 import { useSession, signIn } from "next-auth/react";
-import Nav from "@/components/nav";
+import Nav from "./nav";
 import { useState } from "react";
-import Logo from "@/components/logo";
+import Logo from "./logo";
 export default function Layout({children}) {
   const [showNav,setShowNav]= useState(false);
   const { data: session } = useSession();

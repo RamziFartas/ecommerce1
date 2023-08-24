@@ -1,7 +1,7 @@
 import { signOut } from "next-auth/react";
 import Link from "next/link"
 import { useRouter } from "next/router";
-import Logo from "@/components/logo";
+import Logo from "./logo";
 export default function Nav({show}){
 const inactiveLink='flex gap-1 p-1';
 const activeLink = inactiveLink + ' bg-white text-emerald-800 rounded-l-md';
