@@ -1,4 +1,4 @@
-import { mongooseConnect } from '@/lib/mongoose';
+import { mongooseConnect } from '../../lib/mongoose';
 import multiparty from 'multiparty';
 import { isAdminRequest } from './auth/[...nextauth]';
 

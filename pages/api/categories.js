@@ -1,5 +1,5 @@
-import { mongooseConnect } from "@/lib/mongoose";
-import { Category } from "@/models/category";
+import { mongooseConnect } from "../../lib/mongoose";
+import { Category } from "../../models/category";
 import { isAdminRequest } from "./auth/[...nextauth]";
 
 
