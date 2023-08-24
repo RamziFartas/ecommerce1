@@ -11,7 +11,9 @@ export default function Layout({children}) {
   <div className="text-center w-full text-gray-700">
   <button onClick={(e) => {
     e.preventDefault();
-    signIn("google")}} className="p-2 px-4 bg-white rounded-lg">Login With Google</button>
+    signIn('google',{
+      callbackUrl: '/index'
+    })}} className="p-2 px-4 bg-white rounded-lg">Login With Google</button>
   </div>
   </div>)
   }
