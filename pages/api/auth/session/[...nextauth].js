@@ -12,6 +12,10 @@ export const authOptions = {
       clientSecret: process.env.GOOGLE_SECRET
     }),
   ],
+  pages: {
+    signIn: '/api/auth/signin',
+    error: '/api/auth/error',
+  },secret: process.env.NEXTAUTH_SECRET,
   adapter: MongoDBAdapter(clientPromise),
   callbacks: {
     session: ({session,token,user}) => {
