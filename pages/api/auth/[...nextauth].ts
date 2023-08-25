@@ -5,6 +5,7 @@ import clientPromise from '../../../lib/mongodb'
 import type { NextApiRequest, NextApiResponse } from "next"
 
  async function auth(req: NextApiRequest, res: NextApiResponse){
+  const session = await getServerSession(req,res,authOptions);
   if(req.query.nextauth?.includes("callback") && req.method === "POST") {
     console.log(
       "Handling callback request from my Identity Provider",
@@ -29,4 +30,5 @@ const authOptions:NextAuthOptions = {
     }
   }
 
-export default NextAuth(authOptions);
+const handler= NextAuth(authOptions);
+export {handler as GET,handler as POST};
