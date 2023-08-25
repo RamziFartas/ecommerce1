@@ -11,7 +11,6 @@ import type { NextApiRequest, NextApiResponse } from "next"
       req.body
     )
   }}
-const adminEmails = ['rfartas83@gmail.com'];
 // Define the types for your user and session objects
 const uri = process.env.MONGODB_URI;
 const authOptions:NextAuthOptions = {
