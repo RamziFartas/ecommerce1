@@ -4,7 +4,7 @@ import { MongoDBAdapter } from '@next-auth/mongodb-adapter'
 import clientPromise from '../../../lib/mongodb'
 import type { NextApiRequest, NextApiResponse } from "next"
 
-export async function auth(req: NextApiRequest, res: NextApiResponse){
+ async function auth(req: NextApiRequest, res: NextApiResponse){
   if(req.query.nextauth?.includes("callback") && req.method === "POST") {
     console.log(
       "Handling callback request from my Identity Provider",
@@ -24,23 +24,10 @@ const authOptions:NextAuthOptions = {
   ],
   adapter: MongoDBAdapter(clientPromise),
   callbacks: {
-    session: ( { session}) => {
-      if (adminEmails.includes(session?.user?.email as string)) {
-        return session;
-      } else {
-        throw new Error('You Do not Have Access ');
+   async session({ session, token, user }) {
+      return session;
       }
     }
   }
-};
 
 export default NextAuth(authOptions);
-
-export async function isAdminRequest(req, res) {
-  const session = await getServerSession(req, res, authOptions);
-  if (!adminEmails.includes((session as any)?.user?.email)) {
-    res.status(401);
-    res.end();
-    throw 'not an admin';
-  }
-}
